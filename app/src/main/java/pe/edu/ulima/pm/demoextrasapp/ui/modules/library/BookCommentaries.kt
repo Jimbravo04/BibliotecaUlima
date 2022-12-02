@@ -85,15 +85,16 @@ fun BookCommentaries(
 
 
         ) {
-            Text(text = "Usuario N°1: ", fontSize = 30.sp, textAlign = TextAlign.Center)
-            Spacer(modifier = Modifier.width(16.dp))
+            Text(text = "Comentarios: ", fontSize = 30.sp, textAlign = TextAlign.Center)
+
+            Spacer(modifier = Modifier.width(25.dp))
 
             Text(
+
                 text = book.value!!.coment,
 
                 Modifier
-                    .background(Color.White)
-                    .border(width = 2.dp, Color.White),
+                    .background(Color.White),
                 fontSize = 15.sp,
             )
             Spacer(modifier = Modifier.width(32.dp))
