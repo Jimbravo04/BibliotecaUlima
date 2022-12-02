@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -14,11 +15,13 @@ import androidx.compose.runtime.internal.composableLambdaInstance
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -77,17 +80,21 @@ fun BookCommentaries(
                 .width(260.dp)
                 .height(150.dp)
                 .background(MaterialTheme.colors.primary)
+                .clip(RoundedCornerShape(5.dp))
                 .border(width = 2.dp, Color.Black),
-            horizontalAlignment = Alignment.End,
+
+
         ) {
-            Text(text = "Usuario N°1: ", fontSize = 40.sp)
+            Text(text = "Usuario N°1: ", fontSize = 30.sp, textAlign = TextAlign.Center)
             Spacer(modifier = Modifier.width(16.dp))
+
             Text(
                 text = book.value!!.coment,
+
                 Modifier
                     .background(Color.White)
                     .border(width = 2.dp, Color.White),
-                fontSize = 30.sp,
+                fontSize = 15.sp,
             )
             Spacer(modifier = Modifier.width(32.dp))
         }
@@ -111,9 +118,6 @@ fun BookCommentaries(
         Row {
             Button(onClick = { addCommentary() }) {
                 Text("PUBLICAR")
-            }
-            Button(onClick = { (textValue) }) {
-                Text("REGRESAR")
             }
         }
     }
